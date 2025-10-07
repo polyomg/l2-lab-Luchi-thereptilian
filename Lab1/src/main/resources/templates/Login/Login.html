@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${title}">Login</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>	
+<body>
+	<h2> From Đăng nhập</h2>
+	<form action="/Login/check" method="post" >
+    <label> Username</label>
+	<input type="text" name="username"><br><br>
+	<label>Password</label>
+	<input type="password" name="password"><br><br>
+	<button type="submit">Đăng nhập</button>
+		
+	</form>
+	<p style="color:blue;" th:text="${message}"></p>
+	<p style="color:blue;" th:text="${username}"></p>
+	<p style="color:blue;" th:text="${password}"></p>
+</body>
+
+</html>

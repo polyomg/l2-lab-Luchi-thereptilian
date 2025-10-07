@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${title}">letmecook</title>
+	<meta charset="UTF-8">
+</head>	
+<body>
+	<h1 th:text="${title}">Tiêu đề</h1>
+
+	<!-- Form gửi POST đến /Array/save -->
+	<form th:action="@{/Array/save}" method="post">
+	    <input type="text" name="name" placeholder="Tên sản phẩm" required>
+	    <input type="number" name="price" placeholder="Giá" step="0.01" required>
+	    <button type="submit">Save</button>
+	</form>
+
+	<!-- Thông báo sau khi lưu -->
+	<p th:text="${message}"></p>
+
+	<!-- Cách 1: Lấy từng biến riêng lẻ -->
+	<h3>Cách 1</h3>
+	<ul>
+	    <li th:text="${p1.name}">?1name</li>
+	    <li th:text="${p1.price}">?1price</li>
+	</ul>
+
+	<!-- Cách 2: Lấy object khác -->
+	<h3>Cách 2</h3>
+	<ul>
+	    <li th:text="${p2.name}">?2name</li>
+	    <li th:text="${p2.price}">?2price</li>
+	</ul>
+
+	<!-- Cách 3: Duyệt list -->
+	<h3>Cách 3</h3>
+	<ul>
+	    <th:block th:each="item : ${items}">
+	        <li th:text="${item.name + ' - ' + item.price}">?3item</li>
+	    </th:block>
+	</ul>	 
+</body>
+</html>

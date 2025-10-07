@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Param Form</title>
+</head>
+<body>
+    <h1>Form test BruhController</h1>
+
+    <!-- Hiển thị message từ model (set ở /b hoặc flash ở /c) -->
+    <p>Model message: <span th:text="${message}">[no message]</span></p>
+
+    <!-- Hiển thị message từ query string (param.message khi redirect /c) -->
+    <p>Param message: <span th:text="${param.message}">[no param]</span></p>
+
+    <hr>
+
+    <!-- Các nút để test controller -->
+    <form action="/Bruh/b" method="get">
+        <button type="submit">Go to /b (model.addAttribute)</button>
+    </form>
+
+    <form action="/Bruh/c" method="get">
+        <button type="submit">Go to /c (redirect with param)</button>
+    </form>
+
+    <form action="/Bruh/d" method="get">
+        <button type="submit">Go to /d (@ResponseBody)</button>
+    </form>
+</body>
+</html>
